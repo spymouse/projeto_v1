@@ -1,0 +1,27 @@
+<p>personphoneadd works!</p>
+
+
+<div class="col-md-6">  
+  
+  <h2 class="text-center">{{empformlabel}}</h2>  
+  <form [formGroup]="addForm" novalidate class="form">  
+
+
+    <div class="form-group">  
+      <label for="personPhone">Phone Number: </label>  
+      <input formControlName="phoneNumber" required="" pattern="[\(]\d{2}[\)]\d{4}[\-]\d{4}" placeholder="Phone Number:" name="personPhone" class="form-control" id="personPhone">  
+    </div>  
+    
+    <div class="form-group">
+      <label for="PhoneTypeSelect">Phone Type: </label>
+      <select class="form-control" id="PhoneTypeSelect" formControlName="phoneNumberTypeID" [(ngModel)]="selectPhone">
+        <option *ngFor="let phoneType of ListaphoneTypes" value="{{phoneType.phoneNumberTypeID}}">{{phoneType.name}}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>  
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="!btnvisibility" (click)="onUpdate()">Update</button>  
+  
+    <p>Form value: {{ addForm.value | json }}</p>  
+  </form>  
+</div> 

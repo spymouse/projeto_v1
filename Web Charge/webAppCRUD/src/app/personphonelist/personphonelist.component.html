@@ -1,0 +1,28 @@
+<p>personphonelist works!</p>
+
+<div class="col-md-12">  
+    <h2> User Details</h2>  
+    <div class="table-responsive table-container">  
+      <table class="table">  
+        <thead>  
+          <tr>              
+            <th>BusinessEntityID</th> 
+            <th>PhoneNumber</th>  
+            <th>PhoneName</th>  
+            <th>Action</th>  
+          </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let personPhone of ListPersonPhone">              
+            <td>{{personPhone.businessEntityID}}</td>  
+            <td>{{personPhone.phoneNumber}}</td>  
+            <td>{{personPhone.phoneName}}</td>  
+            <td>  
+              <button (click)="deletePersonPhone(personPhone)" class="btn btn-info"> Deletar</button>  
+              <button (click)="editPersonPhone(personPhone)" style="margin-left: 20px;" class="btn btn-info"> Editar</button>  
+            </td>  
+          </tr>  
+        </tbody>  
+      </table>  
+    </div>  
+  </div> 
